@@ -1,0 +1,39 @@
+Tabel Customer (Sekolah)
+Customer kita adalah sekolah. Satu sekolah bisa punya banyak kontak dan rekening. Semua kolom memakai tipe VARCHAR dan INT.
+1. Tabel schools
+Data utama sekolah.
+Nama Kolom	Tipe Data	Keterangan
+id	VARCHAR(36)	ID unik sekolah (kunci utama)
+name	VARCHAR(150)	Nama sekolah
+npsn	VARCHAR(8)	Nomor Pokok Sekolah Nasional
+education_level	VARCHAR(10)	Jenjang: SD, SMP, SMA, dll.
+address	VARCHAR(255)	Alamat sekolah
+city	VARCHAR(80)	Kota
+phone	VARCHAR(20)	Nomor telepon
+email	VARCHAR(120)	Email sekolah
+student_count	INT	Jumlah siswa
+status	VARCHAR(15)	TRIAL, ACTIVE, atau CHURNED
+created_at	VARCHAR(19)	Waktu data dibuat
+
+2. Tabel school_contacts
+Kontak (PIC) sekolah, mis. bendahara.
+Nama Kolom	Tipe Data	Keterangan
+id	VARCHAR(36)	ID unik kontak (kunci utama)
+school_id	VARCHAR(36)	ID sekolah (mengacu ke schools.id)
+full_name	VARCHAR(120)	Nama lengkap
+role	VARCHAR(30)	Jabatan: KEPALA_SEKOLAH, BENDAHARA, dll.
+phone	VARCHAR(20)	Nomor telepon / WhatsApp
+
+3. Tabel school_bank_accounts
+Rekening tujuan pencairan dana SPP.
+Nama Kolom	Tipe Data	Keterangan
+id	VARCHAR(36)	ID unik rekening (kunci utama)
+school_id	VARCHAR(36)	ID sekolah (mengacu ke schools.id)
+bank_name	VARCHAR(60)	Nama bank
+account_number	VARCHAR(30)	Nomor rekening
+account_holder	VARCHAR(120)	Nama pemilik rekening
+is_verified	INT	1 = sudah diverifikasi, 0 = belum
+
+Catatan singkat
+• Tanggal ditulis sebagai teks dengan format 2026-10-13 14:30:00.
+• Nilai ya/tidak memakai angka: 1 = ya, 0 = tidak.
